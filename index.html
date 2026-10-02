@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palmas Auto Peças | Peças e Acessórios para Veículos em Palmas - PR</title>
+  <meta name="description" content="Comércio de peças e acessórios para veículos em Palmas - PR. Baterias, amortecedores, suspensão, faróis, correias, lubrificantes e escapamentos. Atendimento de confiança." />
+  <meta name="theme-color" content="#0b0d11" />
+
+  <!-- Google Fonts: Syne (display marcante) + Inter (leitura técnica precisa) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       RESET & VARIÁVEIS GLOBAIS
+       ========================================================================== */
+    :root {
+      --bg-main: #0b0d11;
+      --bg-surface: #12151c;
+      --bg-card: #161b24;
+      --bg-card-hover: #1c232f;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(217, 35, 42, 0.35);
+      
+      --text-primary: #f5f7fa;
+      --text-secondary: #9aa4b2;
+      --text-muted: #647082;
+      
+      --accent-red: #d9232a;
+      --accent-red-hover: #b51c22;
+      --accent-steel: #8e9bb0;
+      --accent-green: #25d366;
+      --accent-gold: #f59e0b;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --container-max: 1200px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+    }
+
+    body {
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(217, 35, 42, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 85% 60%, rgba(142, 155, 176, 0.03) 0%, transparent 50%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Utilitários Visuais */
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-red);
+      background: rgba(217, 35, 42, 0.08);
+      border: 1px solid rgba(217, 35, 42, 0.2);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .badge-tag::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent-red);
+      border-radius: 50%;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVEGAÇÃO
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 13, 17, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(11, 13, 17, 0.98);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .brand-title span {
+      color: var(--accent-red);
+    }
+
+    .brand-sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-phone-quick {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+    }
+
+    .btn-phone-quick:hover {
+      border-color: var(--text-secondary);
+    }
+
+    .btn-cta-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-red);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+
+    .btn-cta-nav:hover {
+      background: var(--accent-red-hover);
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 9px;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: #fff;
+      transition: var(--transition);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 2rem 1.5rem;
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+      z-index: 999;
+    }
+
+    .mobile-drawer.active {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      position: relative;
+      padding: 4.5rem 0 5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-location {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--accent-steel);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--text-muted);
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+      color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.6;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      background: var(--accent-red);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      padding: 0.95rem 1.85rem;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(217, 35, 42, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(217, 35, 42, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      padding: 0.95rem 1.85rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      text-transform: uppercase;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Composição Visual Técnica Automotiva */
+    .hero-visual {
+      position: relative;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 50px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-red);
+    }
+
+    .spec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      border-bottom: 1px dashed var(--border-subtle);
+      padding-bottom: 1rem;
+    }
+
+    .spec-code {
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--accent-steel);
+      letter-spacing: 0.1em;
+    }
+
+    .spec-status {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-green);
+      text-transform: uppercase;
+    }
+
+    .spec-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+    }
+
+    .spec-diagram {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .spec-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 1.25rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .spec-box-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .spec-box-val {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .hero-quote-compact {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 2px solid var(--accent-red);
+      padding: 0.75rem 1rem;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       BARRA DE CONFIANÇA (TIPO ETIQUETA TÉCNICA)
+       ========================================================================== */
+    .trust-strip {
+      background: #0e1117;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.5rem 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .trust-icon-box {
+      width: 44px;
+      height: 44px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent-red);
+    }
+
+    .trust-item-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .trust-item-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       CATEGORIAS DE PEÇAS
+       ========================================================================== */
+    .section-padding {
+      padding: 5.5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+      max-width: 650px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .section-lead {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: transparent;
+      transition: var(--transition);
+    }
+
+    .category-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .category-card:hover::before {
+      background: var(--accent-red);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-steel);
+    }
+
+    .category-card:hover .category-icon {
+      color: var(--accent-red);
+      border-color: var(--border-accent);
+    }
+
+    .category-number {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .category-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+
+    .category-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+
+    .category-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .category-card:hover .category-btn {
+      background: var(--accent-red);
+      border-color: var(--accent-red);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       DIFERENCIAIS / POR QUE PALMAS AUTO PEÇAS
+       ========================================================================== */
+    .why-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 2rem;
+      position: relative;
+    }
+
+    .feature-step {
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: var(--accent-red);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .feature-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       AVALIAÇÕES & PROVA SOCIAL
+       ========================================================================== */
+    .reviews-card-summary {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .rating-big {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .rating-score {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .rating-max {
+      font-size: 1.35rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stars-cluster {
+      display: flex;
+      gap: 0.35rem;
+      color: var(--accent-gold);
+    }
+
+    .reviews-count {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .review-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 0.25rem;
+      color: var(--accent-gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .review-text {
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .review-source {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .review-actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       SEÇÃO DE CONTATO / CONVERSÃO
+       ========================================================================== */
+    .contact-box {
+      background: linear-gradient(145deg, #131720 0%, #0d1016 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(217, 35, 42, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .contact-buttons-cluster {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .contact-btn-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.75rem;
+      transition: var(--transition);
+    }
+
+    .contact-btn-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .contact-btn-card.whatsapp:hover {
+      border-color: var(--accent-green);
+      background: rgba(37, 211, 102, 0.05);
+    }
+
+    .contact-btn-card.phone:hover {
+      border-color: var(--accent-red);
+      background: rgba(217, 35, 42, 0.05);
+    }
+
+    .contact-card-info {
+      text-align: left;
+    }
+
+    .contact-card-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-card-value {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .contact-pill-action {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .whatsapp .contact-pill-action {
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--accent-green);
+    }
+
+    .phone .contact-pill-action {
+      background: rgba(217, 35, 42, 0.15);
+      color: var(--accent-red);
+    }
+
+    /* ==========================================================================
+       LOCALIZAÇÃO E HORÁRIO
+       ========================================================================== */
+    .loc-hours-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .info-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+    }
+
+    .info-panel-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .info-panel-title svg {
+      color: var(--accent-red);
+    }
+
+    .address-highlight {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .address-details {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+
+    .map-frame-wrapper {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: #0f1218;
+      height: 220px;
+      margin-bottom: 1.5rem;
+    }
+
+    .map-frame-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(100%) invert(90%) contrast(85%);
+      opacity: 0.85;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.92rem;
+    }
+
+    .hours-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .hours-day {
+      color: var(--text-secondary);
+    }
+
+    .hours-time {
+      font-weight: 600;
+      color: #fff;
+      text-align: right;
+    }
+
+    .on-call-badge {
+      margin-top: 1.75rem;
+      background: rgba(217, 35, 42, 0.08);
+      border: 1px solid rgba(217, 35, 42, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .on-call-text {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .on-call-contact {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       REDES SOCIAIS & FOOTER
+       ========================================================================== */
+    .social-banner {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      padding: 3rem 0;
+    }
+
+    .social-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .social-links-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .social-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      background: #07080a;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 3.5rem 0 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-description {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      max-width: 320px;
+    }
+
+    .footer-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+      font-size: 0.78rem;
+    }
+
+    /* ==========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 990;
+      background: #25d366;
+      color: #fff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: var(--transition);
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+    }
+
+    .floating-whatsapp svg {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (DESKTOP & TABLET RESPONSIVIDADE)
+       ========================================================================== */
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .reviews-card-summary {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .contact-buttons-cluster {
+        flex-direction: row;
+        max-width: 100%;
+        justify-content: center;
+      }
+
+      .contact-btn-card {
+        flex: 1;
+        max-width: 320px;
+      }
+
+      .loc-hours-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+
+      .social-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .btn-phone-quick {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding: 6.5rem 0 7rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="#" class="brand-logo" aria-label="Palmas Auto Peças - Página Inicial">
+          <span class="brand-title">PALMAS <span>AUTO PEÇAS</span></span>
+          <span class="brand-sub">Palmas • Paraná</span>
+        </a>
+
+        <!-- Menu Desktop -->
+        <nav aria-label="Navegação Principal">
+          <ul class="nav-links">
+            <li><a href="#categorias" class="nav-link">Categorias</a></li>
+            <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+            <li><a href="#avaliacoes" class="nav-link">Avaliações</a></li>
+            <li><a href="#localizacao" class="nav-link">Localização</a></li>
+            <li><a href="#contato" class="nav-link">Atendimento</a></li>
+          </ul>
+        </nav>
+
+        <!-- Ações do Cabeçalho -->
+        <div class="header-actions">
+          <a href="tel:+554632622438" class="btn-phone-quick" title="Ligue para nossa loja">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>(46) 3262-2438</span>
+          </a>
+
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20uma%20pe%C3%A7a%20na%20Palmas%20Auto%20Pe%C3%A7as." target="_blank" rel="noopener noreferrer" class="btn-cta-nav">
+            <span>WhatsApp</span>
+          </a>
+
+          <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Abrir Menu de Navegação">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gaveta Mobile -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#categorias" class="mobile-nav-link">Categorias</a>
+      <a href="#diferenciais" class="mobile-nav-link">Diferenciais</a>
+      <a href="#avaliacoes" class="mobile-nav-link">Avaliações Google</a>
+      <a href="#localizacao" class="mobile-nav-link">Localização & Horário</a>
+      <a href="#contato" class="mobile-nav-link">Canais de Contato</a>
+      <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+        <a href="tel:+554632622438" style="color: var(--accent-steel); font-size: 0.9rem;">Telefone: (46) 3262-2438</a>
+        <a href="https://wa.me/5511911630589" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%;">Falar com Divino no WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+  -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="badge-tag">AUTO PEÇAS &amp; ACESSÓRIOS</span>
+            <span class="hero-location">PALMAS — PARANÁ</span>
+          </div>
+
+          <h1 class="hero-title">
+            PEÇAS CERTAS.
+            <span>PARA O SEU CARRO.</span>
+          </h1>
+
+          <p class="hero-description">
+            Peças e acessórios para veículos, com atendimento de confiança em Palmas - PR.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20preciso%20de%20uma%20pe%C3%A7a%20para%20o%20meu%20ve%C3%ADculo." target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.47-.32z"/></svg>
+              <span>Falar no WhatsApp</span>
+            </a>
+            <a href="#categorias" class="btn-secondary">
+              <span>Ver Categorias</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Painel Técnico Automotivo -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="spec-header">
+            <div>
+              <div class="spec-code">SISTEMA // BALCÃO &amp; DISTRIBUIÇÃO</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 2px;">PALMAS AUTO PEÇAS</div>
+            </div>
+            <div class="spec-status">Estoque Local Ativo</div>
+          </div>
+
+          <div class="spec-diagram">
+            <div class="spec-box">
+              <div class="spec-box-label">Localidade</div>
+              <div class="spec-box-val">Palmas - PR</div>
+            </div>
+            <div class="spec-box">
+              <div class="spec-box-label">Avaliação Google</div>
+              <div class="spec-box-val">4,6 ★★★★★</div>
+            </div>
+            <div class="spec-box">
+              <div class="spec-box-label">Linhas Atendidas</div>
+              <div class="spec-box-val">Peças &amp; Acessórios</div>
+            </div>
+            <div class="spec-box">
+              <div class="spec-box-label">Canal Direto</div>
+              <div class="spec-box-val">WhatsApp / Fone</div>
+            </div>
+          </div>
+
+          <div class="hero-quote-compact">
+            “Comércio de Peças e Acessórios para Veículos. Baterias, Amortecedores, Suspensão, Faróis, Lanternas, Correias, Lubrificantes, Escapamentos.”
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BARRA DE CONFIANÇA (TIPO ETIQUETA TÉCNICA)
+       ========================================================================== -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div>
+            <div class="trust-item-title">4,6 MIL+ AVALIAÇÕES</div>
+            <div class="trust-item-desc">No Google Maps</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div>
+            <div class="trust-item-title">PALMAS - PR</div>
+            <div class="trust-item-desc">Atendimento presencial</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <div>
+            <div class="trust-item-title">PEÇAS &amp; ACESSÓRIOS</div>
+            <div class="trust-item-desc">Linhas essenciais</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div>
+            <div class="trust-item-title">WHATSAPP &amp; FONE</div>
+            <div class="trust-item-desc">Resposta ágil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CATEGORIAS DE PRODUTOS
+       ========================================================================== -->
+  <section class="section-padding" id="categorias">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">PORTFÓLIO AUTOMOTIVO</span>
+        <h2 class="section-title">ENCONTRE O QUE SEU CARRO PRECISA</h2>
+        <p class="section-lead">
+          Categorias selecionadas para reposição e manutenção automotiva com atendimento direto de nossa equipe técnica.
+        </p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- 1. Baterias -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><line x1="6" y1="3" x2="6" y2="7"></line><line x1="18" y1="3" x2="18" y2="7"></line><line x1="15" y1="12" x2="19" y2="12"></line><line x1="5" y1="12" x2="9" y2="12"></line><line x1="7" y1="10" x2="7" y2="14"></line></svg>
+              </div>
+              <span class="category-number">01</span>
+            </div>
+            <h3 class="category-name">Baterias</h3>
+            <p class="category-desc">Energia confiável e partida segura para veículos leves e utilitários.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Baterias." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 2. Amortecedores -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"></circle><line x1="12" y1="7" x2="12" y2="10"></line><rect x="9" y="10" width="6" height="8" rx="1"></rect><line x1="12" y1="18" x2="12" y2="21"></line></svg>
+              </div>
+              <span class="category-number">02</span>
+            </div>
+            <h3 class="category-name">Amortecedores</h3>
+            <p class="category-desc">Estabilidade, conforto e dirigibilidade para todas as condições de rodagem.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Amortecedores." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 3. Suspensão -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h16"></path><path d="M4 10h16"></path><path d="M12 4v16"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
+              </div>
+              <span class="category-number">03</span>
+            </div>
+            <h3 class="category-name">Suspensão</h3>
+            <p class="category-desc">Componentes estruturais para segurança e precisão mecânica do veículo.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Suspens%C3%A3o." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 4. Faróis -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8v4a8 8 0 0 0 8 8"></path><line x1="12" y1="7" x2="20" y2="7"></line><line x1="12" y1="12" x2="22" y2="12"></line><line x1="12" y1="17" x2="20" y2="17"></line></svg>
+              </div>
+              <span class="category-number">04</span>
+            </div>
+            <h3 class="category-name">Faróis</h3>
+            <p class="category-desc">Iluminação de qualidade e visibilidade adequada para trajetos seguros.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Far%C3%B3is." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 5. Lanternas -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
+              </div>
+              <span class="category-number">05</span>
+            </div>
+            <h3 class="category-name">Lanternas</h3>
+            <p class="category-desc">Sinalização traseira e lateral para conformidade e segurança no trânsito.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Lanternas." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 6. Correias -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="12" r="3"></circle><circle cx="17" cy="12" r="3"></circle><path d="M7 9h10"></path><path d="M7 15h10"></path></svg>
+              </div>
+              <span class="category-number">06</span>
+            </div>
+            <h3 class="category-name">Correias</h3>
+            <p class="category-desc">Sincronismo e acionamento de acessórios essenciais para o motor.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Correias." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 7. Lubrificantes -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+              </div>
+              <span class="category-number">07</span>
+            </div>
+            <h3 class="category-name">Lubrificantes</h3>
+            <p class="category-desc">Óleos e fluidos para proteção, durabilidade e rendimento mecânico.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Lubrificantes." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 8. Escapamentos -->
+        <div class="category-card">
+          <div>
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h8a4 4 0 0 0 4-4V5"></path><path d="M16 19v-4a4 4 0 0 0-4-4H4"></path></svg>
+              </div>
+              <span class="category-number">08</span>
+            </div>
+            <h3 class="category-name">Escapamentos</h3>
+            <p class="category-desc">Sistemas de exaustão para redução de ruídos e eficiência na emissão.</p>
+          </div>
+          <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20sobre%20Escapamentos." target="_blank" rel="noopener noreferrer" class="category-btn">
+            <span>Consultar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DIFERENCIAIS / POR QUE PALMAS AUTO PEÇAS
+       ========================================================================== -->
+  <section class="section-padding why-section" id="diferenciais">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">COMPROMISSO COM O CLIENTE</span>
+        <h2 class="section-title">POR QUE A PALMAS AUTO PEÇAS?</h2>
+        <p class="section-lead">
+          Pilares que consolidam a preferência dos motoristas e profissionais de Palmas e região.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-step">01 // CONFIANÇA</div>
+          <h3 class="feature-title">Atendimento que faz diferença</h3>
+          <p class="feature-text">
+            Uma equipe preparada para ajudar você a encontrar as peças e acessórios certos para o seu veículo.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-step">02 // AGILIDADE</div>
+          <h3 class="feature-title">Preço e prazo</h3>
+          <p class="feature-text">
+            Condições pensadas para facilitar sua compra e seu atendimento com transparência e rapidez.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-step">03 // COMPLETUDE</div>
+          <h3 class="feature-title">Variedade</h3>
+          <p class="feature-text">
+            Um catálogo de categorias para diferentes necessidades do seu veículo, do motor à suspensão.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       AVALIAÇÕES GOOGLE
+       ========================================================================== -->
+  <section class="section-padding" id="avaliacoes">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">PROVA SOCIAL REAL</span>
+        <h2 class="section-title">QUEM COMPRA, RECOMENDA.</h2>
+        <p class="section-lead">Opiniões de quem confia no balcão e no atendimento da Palmas Auto Peças.</p>
+      </div>
+
+      <!-- Resumo Google -->
+      <div class="reviews-card-summary">
+        <div>
+          <div class="rating-big">
+            <span class="rating-score">4,6</span>
+            <span class="rating-max">/ 5</span>
+          </div>
+          <div class="stars-cluster" aria-label="Avaliação 4.6 de 5 estrelas">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: #fff;">
+            4.663 avaliações no Google
+          </div>
+          <div class="reviews-count">Classificação pública verificada de clientes reais.</div>
+        </div>
+      </div>
+
+      <!-- 3 Depoimentos Verificados -->
+      <div class="reviews-grid">
+        <div class="review-item">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">“Equipe nota 1000 no atendimento. tem preço e prazo.”</p>
+          </div>
+          <div class="review-source">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v2h-2zm0-12h2v10h-2z"/></svg>
+            <span>Avaliação no Google</span>
+          </div>
+        </div>
+
+        <div class="review-item">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">“Belo atendimento, galera gente boa”</p>
+          </div>
+          <div class="review-source">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v2h-2zm0-12h2v10h-2z"/></svg>
+            <span>Avaliação no Google</span>
+          </div>
+        </div>
+
+        <div class="review-item">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">“Ótimas pessoas e ótimo atendimento”</p>
+          </div>
+          <div class="review-source">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v2h-2zm0-12h2v10h-2z"/></svg>
+            <span>Avaliação no Google</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-actions">
+        <a href="https://www.google.com/maps/search/Palmas+Auto+Pe%C3%A7as+Palmas+PR" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <span>Ver Avaliações</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SEÇÃO DE CONTATO / ATENDIMENTO
+       ========================================================================== -->
+  <section class="section-padding" id="contato">
+    <div class="container">
+      <div class="contact-box">
+        <span class="badge-tag" style="margin-bottom: 1.25rem;">CANAL DIRETO</span>
+        <h2 class="contact-title">PRECISA DE UMA PEÇA? FALE COM A GENTE.</h2>
+        <p class="contact-sub">
+          Envie uma mensagem pelo WhatsApp ou entre em contato diretamente com a loja.
+        </p>
+
+        <div class="contact-buttons-cluster">
+          <!-- WhatsApp Card -->
+          <a href="https://wa.me/5511911630589" target="_blank" rel="noopener noreferrer" class="contact-btn-card whatsapp">
+            <div class="contact-card-info">
+              <div class="contact-card-label">WhatsApp • Divino</div>
+              <div class="contact-card-value">(11) 91163-0589</div>
+            </div>
+            <div class="contact-pill-action">
+              <span>Conversar</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+
+          <!-- Telefone Card -->
+          <a href="tel:+554632622438" class="contact-btn-card phone">
+            <div class="contact-card-info">
+              <div class="contact-card-label">Loja / Telefone Fixo</div>
+              <div class="contact-card-value">(46) 3262-2438</div>
+            </div>
+            <div class="contact-pill-action">
+              <span>Ligar Agora</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LOCALIZAÇÃO E HORÁRIO
+       ========================================================================== -->
+  <section class="section-padding" id="localizacao" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="loc-hours-grid">
+        <!-- Endereço e Mapa -->
+        <div class="info-panel">
+          <h2 class="info-panel-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            VENHA ATÉ A PALMAS AUTO PEÇAS
+          </h2>
+          
+          <div class="address-highlight">Palmas - PR, 85555-000</div>
+          <p class="address-details">
+            Localizada no município de Palmas, Paraná. Conheça nossa estrutura e retire suas peças diretamente no balcão.
+          </p>
+
+          <div class="map-frame-wrapper" title="Mapa de Palmas - PR">
+            <iframe 
+              src="https://maps.google.com/maps?q=Palmas%2C%20PR%2C%2085555-000&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              aria-label="Mapa de Localização Palmas Paraná">
+            </iframe>
+          </div>
+
+          <a href="https://maps.google.com/?q=Palmas+PR+85555-000" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%;">
+            <span>Como Chegar</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- Horário e Plantão -->
+        <div class="info-panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h2 class="info-panel-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              HORÁRIO DE ATENDIMENTO
+            </h2>
+
+            <div class="hours-row">
+              <span class="hours-day">Segunda a Sábado</span>
+              <span class="hours-time">consultar horário atualizado</span>
+            </div>
+
+            <div class="hours-row">
+              <span class="hours-day">Período Matutino</span>
+              <span class="hours-time">08:00 — 12:00</span>
+            </div>
+
+            <div class="hours-row">
+              <span class="hours-day">Período Vespertino</span>
+              <span class="hours-time">13:30 — fechamento</span>
+            </div>
+          </div>
+
+          <!-- Destaque de Plantão -->
+          <div class="on-call-badge">
+            <div>
+              <div class="on-call-text">Plantão • Alessandro</div>
+              <div class="on-call-contact">(46) 3262-2438</div>
+            </div>
+            <a href="tel:+554632622438" class="btn-secondary" style="padding: 0.6rem 1rem; font-size: 0.8rem;">
+              <span>Ligar</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       REDES SOCIAIS
+       ========================================================================== -->
+  <section class="social-banner">
+    <div class="container">
+      <div class="social-wrapper">
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; text-transform: uppercase;">
+            ACOMPANHE A PALMAS AUTO PEÇAS
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.25rem;">
+            Siga nossos perfis institucionais nas redes sociais.
+          </p>
+        </div>
+
+        <div class="social-links-group">
+          <a href="#" class="social-btn" aria-label="Acessar Instagram da Palmas Auto Peças">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Acessar Facebook da Palmas Auto Peças">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">PALMAS AUTO PEÇAS</div>
+          <p class="footer-description">
+            “Comércio de Peças e Acessórios para Veículos. Baterias, Amortecedores, Suspensão, Faróis, Lanternas, Correias, Lubrificantes, Escapamentos.”
+          </p>
+          <p style="margin-top: 1rem; color: var(--accent-steel); font-size: 0.82rem; font-weight: 600;">
+            Palmas — Paraná
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Contato &amp; Plantão</div>
+          <ul class="footer-links">
+            <li><a href="tel:+554632622438">Telefone: (46) 3262-2438</a></li>
+            <li><a href="https://wa.me/5511911630589" target="_blank" rel="noopener noreferrer">WhatsApp: (11) 91163-0589 (Divino)</a></li>
+            <li>Plantão: (46) 3262-2438 (Alessandro)</li>
+            <li>CEP: 85555-000 • Palmas - PR</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Canais Oficiais</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/5511911630589" target="_blank" rel="noopener noreferrer">WhatsApp Oficial</a></li>
+            <li><a href="#">Instagram Institucional</a></li>
+            <li><a href="#">Facebook Institucional</a></li>
+            <li><a href="https://www.google.com/maps/search/Palmas+Auto+Pe%C3%A7as+Palmas+PR" target="_blank" rel="noopener noreferrer">Avaliações no Google</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Palmas Auto Peças. Todos os direitos reservados.
+        </div>
+        <div style="color: var(--text-muted); font-size: 0.75rem;">
+          Comércio de Peças e Acessórios para Veículos • Palmas - PR
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================== -->
+  <a href="https://wa.me/5511911630589?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20uma%20pe%C3%A7a%20na%20Palmas%20Auto%20Pe%C3%A7as." 
+     class="floating-whatsapp" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Falar agora com a Palmas Auto Peças pelo WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.47-.32z"/></svg>
+  </a>
+
+  <!-- ==========================================================================
+       JAVASCRIPT FUNCIONAL
+       ========================================================================== -->
+  <script>
+    // Header com sombra e background ajustado ao scroll
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Menu Mobile Drawer
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuToggle && mobileDrawer) {
+      mobileMenuToggle.addEventListener('click', () => {
+        const isOpen = mobileDrawer.classList.toggle('active');
+        mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileDrawer.classList.remove('active');
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
